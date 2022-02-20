@@ -113,7 +113,8 @@ for file in `$cat .clist`; do
 	-e 's/^.*"\(.*\)".*$/'$filebase'.o: \1/' \
 	-e 's/^# *[0-9][0-9]* \(.*\)$/'$filebase'.o: \1/' \
 	-e 's|: \./|: |' \
-	-e 's|\.c\.c|.c|' | \
+	-e 's|\.c\.c|.c|' \
+        -e '/^'$filebase'.o: </d' | \
     $uniq | $sort | $uniq >> .deptmp
 done
 
