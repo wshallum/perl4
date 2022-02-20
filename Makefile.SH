@@ -305,6 +305,10 @@ perly.h: perly.c
 	@ echo Dummy dependency for dumb parallel make
 	touch perly.h
 
+y.tab.h: perly.c
+	@ echo Dummy dependency for makedepend output
+	touch y.tab.h
+
 perly.c: perly.y perly.fixer
 	@ \
 case "$(YACC)" in \
